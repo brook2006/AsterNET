@@ -4,6 +4,12 @@ solution: "./Asterisk.2013/Asterisk.2013.sln"
 dotnet: 2.2.105
 mono: none
 script: dotnet build ./Asterisk.2013/Asterisk.NET/AsterNET.csproj -c Travis -f netstandard2.0 -o Release
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "Brook Grewcock"
+  - git config --local user.email "brook.grewcock@cloudcall.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
 deploy:
   skip_cleanup: true
   provider: releases
