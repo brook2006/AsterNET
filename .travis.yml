@@ -3,12 +3,12 @@ language: csharp
 solution: "./Asterisk.2013/Asterisk.2013.sln"
 dotnet: 2.2.105
 mono: none
-script: dotnet build ./Asterisk.2013/Asterisk.NET/AsterNET.csproj -c Travis -f netstandard2.0
+script: dotnet build ./Asterisk.2013/Asterisk.NET/AsterNET.csproj -c Travis -f netstandard2.0 -v diagnostic -o Release
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
     secure: Yf4wTkFcfdJ50uw2BnYHtINqLH89s6LdxvBhVYfG4U6xWlgc/ro2qc4rWZftrJFSJeKlhFelAwT7xt4R/ySLV2+xaQCI5X+OxG2WFmbhlEzdQ9oG66zLHqvrmdEZZUraw9LVES1fxqF0BdKdRK87jQ5KY0Xa7kL6IG0MCM6wuj9HBDQZeARWBdagsJmsQSaFWq4mztj8sblupDLGf+Nhjb2sNAVJu7KS51P6+qTsdzG3z4+LeqKBxUK9xjP5Ny6GzgHbs7mU6RPZuJ3M4Q0K3D1UwdIVZufElwoO9FdVcS9L5uvStYfMB+0AYJ8gIcqTNlyoiHUOIqcqXAa9f6e9w7D/MERjHp62zHes3Q3wATk6lNYvdIRg842b0Olp9/7YVMXmYtaWjqVllUp0JuONUhm8XeBeHjQoWkNN1Fb1Z/QVsgE/0Te0fMotkdxwBEuBOQVEb8FaCtQwNWCOM+XbOQwN7jfxC8T4r8CK4bZllUgqQpyax5jS23yPAUbBjsDIfUyK9dGQmYdga9iXWOqSnUCE3l+27GwHdEVlZvl2Tu+XhIsrHxoX91QljZEFMEMqR+d3IYWKMI4mdenp2i7vwhCQd2vqanq4h24zxtP2YZY6ahNlu7xc2NwqV6BHBd7tSXvrhKBJZYZZOpVloLB3PS09OdA8Ox063X7oZgT/ViY=
-  file: "/Asterisk.2013/Asterisk.NET/bin/Travis/netstandard2.0/AsterNET.dll"
+  file: "/Release/AsterNET.dll"
   on:
     repo: brook2006/AsterNET
